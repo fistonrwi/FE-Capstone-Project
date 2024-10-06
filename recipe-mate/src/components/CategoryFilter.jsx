@@ -1,0 +1,30 @@
+// src/components/CategoryFilter.jsx
+import React from 'react';
+
+const CategoryFilter = ({ onSelectCategory }) => {
+  // Define the list of categories
+  const categories = [
+    'Desserts',
+    'Appetizers',
+    'Main Course',
+    'Breakfast',
+    'Soups',
+    'Salads'
+  ];
+
+  return (
+    <div className="categories-container flex justify-center space-x-4 p-4 bg-gray-100">
+      {categories.map((category) => (
+        <button
+          key={category}
+          className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition duration-200"
+          onClick={() => onSelectCategory(category)} // Handle category selection
+        >
+          {category}
+        </button>
+      ))}
+    </div>
+  );
+};
+
+export default CategoryFilter;
