@@ -1,4 +1,3 @@
-// src/pages/RecipeDetails.jsx
 import React from 'react';
 
 const RecipeDetails = ({ recipe, onBack }) => {

@@ -1,4 +1,3 @@
-// src/components/RecipeCategory.jsx
 import React from 'react';
 import RecipeCard from './RecipeCard';
 

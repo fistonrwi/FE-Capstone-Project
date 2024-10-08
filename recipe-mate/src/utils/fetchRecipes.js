@@ -3,7 +3,6 @@
 import axios from 'axios';
 
 const API_URL = 'https://api.spoonacular.com/recipes/complexSearch';
-const API_KEY = 'YOUR_API_KEY'; // Replace with your Spoonacular API key
 
 export const fetchRecipesByCategory = async (category) => {
   try {
@@ -21,7 +20,7 @@ export const fetchRecipesByCategory = async (category) => {
       params: {
         apiKey: API_KEY,
         type: categoryMap[category] || category.toLowerCase(),
-        number: 6, // Number of recipes to fetch per category
+        number: 15,
       },
     });
 

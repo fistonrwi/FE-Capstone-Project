@@ -71,104 +71,104 @@ button:focus-visible {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive columns */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1rem;
 }
 
 @media (max-width: 480px) {
   .grid-container {
-    grid-template-columns: 1fr; /* Single column on small screens */
+    grid-template-columns: 1fr;
   }
 }
 
 .card img {
-  width: 100%; /* Full width within its container */
-  height: auto; /* Maintain aspect ratio */
+  width: 100%;
+  height: auto;
 }
 
 @media (max-width: 480px) {
   body {
-    margin: 0; /* Remove default body margin */
-    padding: 0; /* Remove default body padding */
-    width: 100%; /* Ensure the body takes up full width */
-    font-size: 1rem; /* Adjust font size for better readability */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-size: 1rem;
+    overflow-x: hidden;
   }
 
   /* Additional container styles to fit the screen */
   .container {
-    padding: 0.5em; /* Add padding for inner content */
-    width: 100%; /* Make sure containers fit the screen */
-    box-sizing: border-box; /* Include padding in the width */
+    padding: 0.5em;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   /* Centering content */
   .main-content {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center align content */
-    margin: 0 auto; /* Center content horizontally */
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
   }
 
   /* Ensure images and other media fit within the body */
   img, video {
-    max-width: 100%; /* Ensure media doesn't overflow */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 100%;
+    height: auto;
   }
   .card {
-    margin: 0.5rem; /* Smaller margins */
-    padding: 1rem; /* Smaller padding */
+    margin: 0.5rem;
+    padding: 1rem;
   }
   
   #root {
-    padding: 0.5rem; /* Less padding around the root container */
+    padding: 0.5rem;
   }
 
   /* Categories adjustments */
   .categories-container {
     display: flex;
-    flex-wrap: wrap; /* Allow categories to wrap to the next line */
+    flex-wrap: wrap;
     justify-content: center;
     padding: 0.5em;
   }
 
   .category-item {
-    flex: 0 0 45%; /* Take 45% of the width for each category */
-    margin: 0.5em; /* Add spacing between category items */
-    padding: 0.75em; /* Adjust padding for better touch experience */
-    font-size: 0.9em; /* Reduce font size slightly */
+    flex: 0 0 45%;
+    margin: 0.5em;
+    padding: 0.75em;
+    font-size: 0.9em;
   }
 
   /* View Favorites button adjustments */
   .view-favorites-btn {
     display: block;
-    width: 100%; /* Make button full width */
-    margin: 0.5em 0; /* Margin for separation */
-    padding: 1em; /* Adjust padding */
-    font-size: 1em; /* Adjust font size */
-    background-color: #0073e6; /* Consistent background color */
+    width: 100%;
+    margin: 0.5em 0;
+    padding: 1em;
+    font-size: 1em;
+    background-color: #0073e6;
   }
 
   /* Search bar adjustments */
   .search-container {
-    width: 100%; /* Full width for mobile screens */
-    padding: 0.5em; /* Padding for comfortable tapping */
+    width: 100%;
+    padding: 0.5em;
   }
 
   .search-bar {
-    width: calc(100% - 2em); /* Make the search bar almost full width */
+    width: calc(100% - 2em);
     margin: 0 auto;
-    padding: 0.75em; /* Padding for better appearance */
-    font-size: 1em; /* Adjust font size */
+    padding: 0.75em;
+    font-size: 1em;
   }
 
   .search-button {
     display: block;
-    width: 100%; /* Full width button for search */
-    margin-top: 0.5em; /* Space between search bar and button */
+    width: 100%;
+    margin-top: 0.5em;
     padding: 1em;
     font-size: 1em;
-    background-color: #0073e6; /* Match button color */
+    background-color: #0073e6;
   }
 
 }

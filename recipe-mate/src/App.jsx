@@ -1,11 +1,10 @@
-// src/App.jsx
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
 import RecipeDetails from './components/RecipeDetails';
-import Footer from './components/Footer'; // Import the Footer component
-import CategoryFilter from './components/CategoryFilter'; // Ensure CategoryFilter is imported
+import Footer from './components/Footer';
+import CategoryFilter from './components/CategoryFilter';
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);

@@ -1,4 +1,3 @@
-// src/components/CategoryFilter.jsx
 import React from 'react';
 
 const CategoryFilter = ({ onSelectCategory }) => {
@@ -18,7 +17,7 @@ const CategoryFilter = ({ onSelectCategory }) => {
         <button
           key={category}
           className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition duration-200"
-          onClick={() => onSelectCategory(category)} // Handle category selection
+          onClick={() => onSelectCategory(category)}
         >
           {category}
         </button>

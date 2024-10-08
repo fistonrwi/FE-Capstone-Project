@@ -1,7 +1,6 @@
-// src/components/RecipeCard.jsx
 import React, { useState, useEffect, useContext } from 'react';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
-import ThemeContext from '../context/ThemeContext'; // Import the ThemeContext
+import ThemeContext from '../context/ThemeContext';
 
 // Helper function to get favorites from localStorage
 const getFavoritesFromLocalStorage = () => {
@@ -10,7 +9,7 @@ const getFavoritesFromLocalStorage = () => {
 
 const RecipeCard = ({ recipe, onClick }) => {
   const [isFavorite, setIsFavorite] = useState(false);
-  const { isDarkMode } = useContext(ThemeContext); // Use the ThemeContext to access the dark mode state
+  const { isDarkMode } = useContext(ThemeContext);
 
   useEffect(() => {
     // Check if the recipe is already in the favorites list
@@ -57,7 +56,7 @@ const RecipeCard = ({ recipe, onClick }) => {
         ${isDarkMode ? 'bg-gray-700 text-red-400 border-gray-500' : 'bg-white text-red-500 border-gray-300'}`}
         onClick={handleFavoriteClick}
         aria-label={isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
-        title={isFavorite ? 'Remove from Favorites' : 'Add to Favorites'} // Tooltip on hover
+        title={isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
       >
         {isFavorite ? <FaHeart className="text-red-500" /> : <FaRegHeart className="text-gray-500" />}
       </button>
