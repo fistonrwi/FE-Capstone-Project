@@ -1,6 +1,7 @@
+import { split } from 'postcss/lib/list';
 import React from 'react';
 
-const RecipeDetails = ({ recipe, onBack }) => {
+const RecipeDetails = ({ recipe, onBack, isDarkMode }) => {
   if (!recipe) return null;
 
   const getIngredients = () => {
@@ -16,15 +17,15 @@ const RecipeDetails = ({ recipe, onBack }) => {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className={`p-6 min-h-screen ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-black'}`}>
       <button
         onClick={onBack}
-        className="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-lg transition duration-300 mb-6"
+        className={`p-3 rounded-lg transition duration-300 mb-6 ${isDarkMode ? 'bg-blue-600' : 'bg-blue-500'} hover:${isDarkMode ? 'bg-blue-700' : 'bg-blue-600'} text-white`}
       >
         Back to Recipes
       </button>
 
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto">
+      <div className={`rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto ${isDarkMode ? 'bg-gray-700' : 'bg-white'}`}>
         <img
           src={recipe.strMealThumb}
           alt={recipe.strMeal}

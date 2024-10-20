@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = ({ onSearch, onViewFavorites, favoriteCount }) => {
+const Header = ({ onSearch, onViewFavorites, favoriteCount, isDarkMode, toggleDarkMode }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Function to handle search action
   const handleSearch = () => {
     onSearch(searchTerm);
   };
 
-  // Function to handle Enter key press for search
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
       handleSearch();
@@ -59,6 +57,14 @@ const Header = ({ onSearch, onViewFavorites, favoriteCount }) => {
               </span>
             )}
           </div>
+
+          {/* Dark Mode Toggle Button */}
+          <button
+            onClick={toggleDarkMode}
+            className={`p-3 rounded-lg transition duration-300 shadow ${isDarkMode ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
+          >
+            {isDarkMode ? 'Light Mode' : 'Dark Mode'}
+          </button>
         </div>
       </div>
     </header>
@@ -66,3 +72,4 @@ const Header = ({ onSearch, onViewFavorites, favoriteCount }) => {
 };
 
 export default Header;
+

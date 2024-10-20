@@ -14,10 +14,9 @@ const App = () => {
   const [isFavoritesView, setIsFavoritesView] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [categories, setCategories] = useState(['All', 'Desserts', 'Appetizers', 'Main Course', 'Breakfast']);
+  const [isDarkMode, setIsDarkMode] = useState(false); // Dark mode state
 
-  // Dark mode state and effect to load user preference
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
+  // Fetch default recipes and handle dark mode preference
   useEffect(() => {
     const loadDefaultRecipes = async () => {
       try {
@@ -30,12 +29,30 @@ const App = () => {
     };
     loadDefaultRecipes();
 
-    // Load dark mode preference from localStorage
+    // Load saved dark mode preference from localStorage
     const savedTheme = localStorage.getItem('isDarkMode');
     if (savedTheme) {
       setIsDarkMode(JSON.parse(savedTheme));
     }
   }, []);
+
+  // Toggle dark mode and save preference in localStorage
+  const toggleDarkMode = () => {
+    setIsDarkMode((prevMode) => {
+      const newMode = !prevMode;
+      localStorage.setItem('isDarkMode', JSON.stringify(newMode));
+      return newMode;
+    });
+  };
+
+  // Apply dark mode class to the root element (html tag)
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
 
   const handleViewFavorites = () => {
     setIsFavoritesView(true);
@@ -100,12 +117,14 @@ const App = () => {
 
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 text-black dark:text-white">
+      <div className={`flex flex-col min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-black'}`}>
         {/* Header Component */}
         <Header
           onSearch={handleSearch}
           onViewFavorites={handleViewFavorites}
           favoriteCount={favorites.length}
+          isDarkMode={isDarkMode}
+          toggleDarkMode={toggleDarkMode}
         />
 
         {/* Main content area */}
@@ -118,7 +137,6 @@ const App = () => {
             />
           )}
 
-          {/* Display error message in favorites view */}
           {isFavoritesView && error && (
             <div className="text-center p-4">
               {error}
@@ -127,7 +145,11 @@ const App = () => {
 
           {/* Conditional rendering for recipe details or home page */}
           {selectedRecipe ? (
-            <RecipeDetails recipe={selectedRecipe} onBack={handleBack} />
+  <RecipeDetails
+    recipe={selectedRecipe}
+    onBack={handleBack}
+    isDarkMode={isDarkMode} // Pass the isDarkMode prop
+  />
           ) : (
             <Routes>
               <Route

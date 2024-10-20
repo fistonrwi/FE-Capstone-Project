@@ -16,7 +16,7 @@ const CategoryFilter = ({ onSelectCategory }) => {
       {categories.map((category) => (
         <button
           key={category}
-          className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition duration-200"
+          className="bg-blue-950 text-white p-2 rounded-lg hover:bg-yellow-500 transition duration-200"
           onClick={() => onSelectCategory(category)}
         >
           {category}

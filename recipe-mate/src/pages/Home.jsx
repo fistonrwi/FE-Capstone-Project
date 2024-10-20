@@ -2,6 +2,7 @@
 import React from 'react';
 
 const Home = ({ recipes, error, addToFavorites, removeFromFavorites, favorites, onViewDetails }) => {
+
   // Display error message if there is an error
   if (error) {
     return <div className="error text-red-500 text-center">{error}</div>;
@@ -10,7 +11,7 @@ const Home = ({ recipes, error, addToFavorites, removeFromFavorites, favorites, 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
       {recipes.map((recipe) => {
-        const isFavorite = favorites.some((fav) => fav.idMeal === recipe.idMeal); // Check if the recipe is a favorite
+        const isFavorite = favorites.some((fav) => fav.idMeal === recipe.idMeal);
 
         return (
           <div
@@ -30,7 +31,7 @@ const Home = ({ recipes, error, addToFavorites, removeFromFavorites, favorites, 
             </div>
             <button
               onClick={(e) => {
-                e.stopPropagation(); // Prevent triggering the onClick of the card
+                e.stopPropagation();
                 isFavorite ? removeFromFavorites(recipe) : addToFavorites(recipe);
               }}
               className={`absolute top-2 right-2 p-2 rounded-full transition-colors duration-200 ${
